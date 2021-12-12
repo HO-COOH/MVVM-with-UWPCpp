@@ -58,10 +58,19 @@ Generally, if the "view model" only support one kind of "view" (which should be 
 ### UI
 This example is has an initial window with a button and a text box with an initial text saying "Not Ready".
 ![](screenshots/InitialWindow.png)
+<p style="text-align: center;">WinUI3</p>
+
+![](screenshots/WinUI2InitialWindow.png)
+<p style="text-align: center;">WinUI2</p>
+
 
 When the button is clicked, the "model" does sleep for some time simulating some expensive computation to be done,
 and change the text to "Ready" upon finishing.
 ![](screenshots/Clicked.png)
+<p style="text-align: center;">WinUI3</p>
+
+![](screenshots/WinUI2Clicked.png)
+<p style="text-align: center;">WinUI2</p>
 
 Although the whole process is extremely minimal, it contains all the important concepts of implementing MVVM pattern:
 - `OneWay` Mode data binding (`TwoWay` binding only requires minimal amount of changes)
@@ -71,9 +80,13 @@ Although the whole process is extremely minimal, it contains all the important c
 
 ### Code
 You'd better open the project in **Visual Studio**.
-The project is written with **WinUI3**, however you can easily copy the code 
-and do some minimal changes (as far as I seen, you might only need to change those `Microsoft` namespace -> `Windows` namespace) to support the current UWP development with **WinUI2**.
-For toolchain requirement, read [this](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=vs-2022).
+The project is written in both **WinUI2** & **WinUI3**, showing some minor code changes that you need to be aware of, 
+and there will be a project that has identical structure for each of them.
+![](screenshots/Projects.png)
+
+
+For toolchain requirement, read [this](https://docs.microsoft.com/en-us/windows/apps/windows-app-sdk/set-up-your-development-environment?tabs=vs-2022). Basically you should have these extensions to be able to build it.
+![](screenshots/VisualStudioExtension.png)
 
 
 The code is fully commented, read them in this order:
