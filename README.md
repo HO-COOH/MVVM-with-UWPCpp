@@ -32,21 +32,27 @@ In UWP with C++/WinRT's term, you basically do this
 	- `Model.h`	
 	- `Model.cpp`
 
++ ViewModelLocator (A central places to retrieve ViewModels and free them as needed)
+
 
 Generally, if the "view model" only support one kind of "view" (which should be the majority of the time), you create a total of **9** files for each page/view/controls.
 ```
+ViewModel.<Page>.idl
+ViewModel.<Page>.h
+ViewModel.<Page>.cpp
+
+Model.<Page>.h
+Model.<Page>.cpp
+
 <Page>.xaml
 <Page>.idl
 <Page>.xaml.h
 <Page>.xaml.cpp
-
-<Page>ViewModel.idl
-<Page>ViewModel.h
-<Page>ViewModel.cpp
-
-<Your Business Logic>Model.h
-<Your Business Logic>Model.cpp
 ```
+The order above is coherent with the implementation. You write your `ViewModel`s first, implement the functionality and user-interaction
+of your application, then write the "Model"s, and fianlly the "View"s. 
+You should always ensure "ViewModel"s and "Model"s and **independent** from your UI code, which means ideally **they can be run 
+even without a "View"**.
 
 ## Every tutorial says it's good for unit-testing. Test what?
 - Test your "view model" code using mocking of your "model" to ensure the correctness of the interface logic.
@@ -91,15 +97,16 @@ For toolchain requirement, read [this](https://docs.microsoft.com/en-us/windows/
 
 The code is fully commented, read them in this order:
 ```
-MainPage.xaml
-MainPage.idl
-MainPage.xaml.h
-MainPage.xaml.cpp
+Pages.Main.xaml
+Pages.Main.idl
+Pages.Main.xaml.h
+Pages.Main.xaml.cpp
 
-ViewModel.idl
-ViewModel.h
-ViewModel.cpp
+ViewModels.Locator.h
+ViewModels.Main.idl
+ViewModels.Main.h
+ViewModels.Main.cpp
 
-Model.h
-Model.cpp
+Models.Main.h
+Models.Main.cpp
 ```

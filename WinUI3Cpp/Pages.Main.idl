@@ -1,0 +1,10 @@
+import "ViewModels.Main.idl";
+namespace WinUI3Cpp
+{
+    [default_interface]
+    runtimeclass MainPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        MainPage();
+        WinUI3Cpp.ViewModels.Main MainViewModel{ get; }; //usually a view-model is all you need for the idl file of your view
+    }
+}

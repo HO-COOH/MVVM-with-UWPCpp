@@ -4,23 +4,30 @@
     <ApplicationDefinition Include="App.xaml" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="MainPage.xaml" />
-  </ItemGroup>
-  <ItemGroup>
     <Midl Include="App.idl" />
-    <Midl Include="MainPage.idl" />
-    <Midl Include="ViewModel.idl" />
+    <Midl Include="ViewModels.Main.idl">
+      <Filter>ViewModels</Filter>
+    </Midl>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
     <ClCompile Include="App.cpp" />
-    <ClCompile Include="MainPage.cpp" />
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Models.Main.cpp">
+      <Filter>Models</Filter>
+    </ClCompile>
+    <ClCompile Include="ViewModels.Locator.cpp">
+      <Filter>ViewModels</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Model.h" />
+    <ClInclude Include="Models.Main.h">
+      <Filter>Models</Filter>
+    </ClInclude>
+    <ClInclude Include="ViewModels.Locator.h">
+      <Filter>ViewModels</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Wide310x150Logo.scale-200.png">
@@ -52,9 +59,26 @@
     <Filter Include="Assets">
       <UniqueIdentifier>{e48dc53e-40b1-40cb-970a-f89935452892}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ViewModels">
+      <UniqueIdentifier>{a9e755e9-0d4f-47f2-8ed9-9c01a15a1303}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Models">
+      <UniqueIdentifier>{b2e9f34b-0fa9-4734-8b68-3b0372630d2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Views">
+      <UniqueIdentifier>{afc1a608-9f18-4800-9446-2c1cec0f570d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Views\Pages">
+      <UniqueIdentifier>{c424deb4-9ff8-4e67-8900-6dc5ae4687b1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="PropertySheet.props" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Pages.Main.xaml">
+      <Filter>Views\Pages</Filter>
+    </Page>
   </ItemGroup>
 </Project>

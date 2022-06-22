@@ -1,13 +1,14 @@
 ﻿#pragma once
-#include "ViewModel.g.h"
-#include "Model.h"
+
+#include "ViewModels.Main.g.h"
+#include "Models.Main.h"
 #include <winrt/Windows.UI.Xaml.Controls.h>
 
-namespace winrt::WinUI2Cpp::implementation
+namespace winrt::WinUI3Cpp::ViewModels::implementation
 {
-    struct ViewModel : ViewModelT<ViewModel>
+    struct Main : MainT<Main>
     {
-        ViewModel();
+        Main();
 
         //Returning the states when "view" code quries 
         winrt::hstring thing();
@@ -16,24 +17,24 @@ namespace winrt::WinUI2Cpp::implementation
         winrt::Windows::Foundation::IAsyncAction StartProcess();
 
         //These following 2 methods are for supporting property change events
-        winrt::event_token PropertyChanged(winrt::Windows::UI::Xaml::Data::PropertyChangedEventHandler const& handler);
+        winrt::event_token PropertyChanged(winrt::Microsoft::UI::Xaml::Data::PropertyChangedEventHandler const& handler);
         void PropertyChanged(winrt::event_token const& token) noexcept;
 
     private:
         //model as the view-model's property
-        Model model;
+        Models::Main model;
 
         //Data members recording the states of the view
         winrt::hstring m_thing;
 
         //This is for supporting property change events
-        winrt::event<winrt::Windows::UI::Xaml::Data::PropertyChangedEventHandler> m_propertyChanged;
+        winrt::event<winrt::Microsoft::UI::Xaml::Data::PropertyChangedEventHandler> m_propertyChanged;
     };
 }
 
-namespace winrt::WinUI2Cpp::factory_implementation
+namespace winrt::WinUI3Cpp::ViewModels::factory_implementation
 {
-    struct ViewModel : ViewModelT<ViewModel, implementation::ViewModel>
+    struct Main : MainT<Main, implementation::Main>
     {
     };
 }

@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 #include "MainPage.g.h"
-#include "ViewModel.h"  //include the view model header file
+#include "ViewModels.Main.h"  //include the view model header file
 
 namespace winrt::WinUI2Cpp::implementation
 {
@@ -22,10 +22,7 @@ namespace winrt::WinUI2Cpp::implementation
             This one is the class generated from the view-model idl file, and has only methods declared in the idl file and is the correct one to use.
             Same as the view-model private member.
         */
-        WinUI2Cpp::ViewModel MainViewModel();
-    private:
-        //view-model as the page's property
-        WinUI2Cpp::ViewModel m_viewModel;
+        WinUI2Cpp::ViewModels::Main MainViewModel();
     };
 }
 

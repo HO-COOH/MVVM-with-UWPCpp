@@ -1,10 +1,10 @@
-namespace WinUI2Cpp
+namespace WinUI2Cpp.ViewModels
 {
     [bindable]
     [default_interface]
-    runtimeclass ViewModel : Windows.UI.Xaml.Data.INotifyPropertyChanged
+    runtimeclass Main : Windows.UI.Xaml.Data.INotifyPropertyChanged
     {                       //^ For UWP with WinUI3, use Microsoft.UI.Xaml.Data.INotifyPropertyChanged
-        ViewModel();
+        Main();
         
         //Simulates properties or "states" of the "view" that should be inside a "view-model"
         String thing{ get; };

@@ -94,16 +94,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Model.h" />
+    <ClInclude Include="Models.Main.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="App.xaml.h">
       <DependentUpon>App.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="MainPage.xaml.h">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <ClInclude Include="Pages.Main.xaml.h">
+      <DependentUpon>Pages.Main.xaml</DependentUpon>
     </ClInclude>
-    <ClInclude Include="ViewModel.h">
-      <DependentUpon>ViewModel.idl</DependentUpon>
+    <ClInclude Include="ViewModels.Locator.h" />
+    <ClInclude Include="ViewModels.Main.h">
+      <DependentUpon>ViewModels.Main.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClInclude>
   </ItemGroup>
@@ -111,7 +112,7 @@
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-    <Page Include="MainPage.xaml">
+    <Page Include="Pages.Main.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
@@ -130,19 +131,20 @@
     <Image Include="Assets\Wide310x150Logo.scale-200.png" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Model.cpp" />
+    <ClCompile Include="Models.Main.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader>Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="App.xaml.cpp">
       <DependentUpon>App.xaml</DependentUpon>
     </ClCompile>
-    <ClCompile Include="MainPage.xaml.cpp">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <ClCompile Include="Pages.Main.xaml.cpp">
+      <DependentUpon>Pages.Main.xaml</DependentUpon>
     </ClCompile>
     <ClCompile Include="$(GeneratedFilesDir)module.g.cpp" />
-    <ClCompile Include="ViewModel.cpp">
-      <DependentUpon>ViewModel.idl</DependentUpon>
+    <ClCompile Include="ViewModels.Locator.cpp" />
+    <ClCompile Include="ViewModels.Main.cpp">
+      <DependentUpon>ViewModels.Main.idl</DependentUpon>
       <SubType>Code</SubType>
     </ClCompile>
   </ItemGroup>
@@ -151,11 +153,11 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Midl>
-    <Midl Include="MainPage.idl">
-      <DependentUpon>MainPage.xaml</DependentUpon>
+    <Midl Include="Pages.Main.idl">
+      <DependentUpon>Pages.Main.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Midl>
-    <Midl Include="ViewModel.idl">
+    <Midl Include="ViewModels.Main.idl">
       <SubType>Designer</SubType>
     </Midl>
   </ItemGroup>

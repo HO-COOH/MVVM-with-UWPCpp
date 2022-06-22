@@ -1,25 +1,25 @@
 ﻿#include "pch.h"
-#include "ViewModel.h"
-#if __has_include("ViewModel.g.cpp")
-#include "ViewModel.g.cpp"
+#include "ViewModels.Main.h"
+#if __has_include("ViewModels.Main.g.cpp")
+#include "ViewModels.Main.g.cpp"
 #endif
 #include <winrt/Windows.ApplicationModel.Core.h> //for winrt::Windows::ApplicationModel::Core
 #include <winrt/Windows.UI.Core.h> //for winrt::resume_foreground
 
-namespace winrt::WinUI2Cpp::implementation
+namespace winrt::WinUI2Cpp::ViewModels::implementation
 {
-    ViewModel::ViewModel()
+    Main::Main()
     {
         //Initialize the state
         m_thing = model.getValue();
     }
 
-    winrt::hstring ViewModel::thing()
+    winrt::hstring Main::thing()
     {
         return m_thing;
     }
 
-    winrt::Windows::Foundation::IAsyncAction ViewModel::StartProcess()
+    winrt::Windows::Foundation::IAsyncAction Main::StartProcess()
     {
         //Notice how you can simply co_await on std::future
         co_await model.calculation();
@@ -31,12 +31,12 @@ namespace winrt::WinUI2Cpp::implementation
         m_propertyChanged(*this, Windows::UI::Xaml::Data::PropertyChangedEventArgs{ L"thing" });
     }
 
-    winrt::event_token ViewModel::PropertyChanged(winrt::Windows::UI::Xaml::Data::PropertyChangedEventHandler const& handler)
+    winrt::event_token Main::PropertyChanged(winrt::Windows::UI::Xaml::Data::PropertyChangedEventHandler const& handler)
     {
         return m_propertyChanged.add(handler);
     }
 
-    void ViewModel::PropertyChanged(winrt::event_token const& token) noexcept
+    void Main::PropertyChanged(winrt::event_token const& token) noexcept
     {
         m_propertyChanged.remove(token);
     }
